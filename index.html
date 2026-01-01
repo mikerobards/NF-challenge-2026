@@ -1,0 +1,165 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Nerd Fitness Challenge Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="min-h-screen flex flex-col items-center py-8 px-4">
+    <!-- Main Container -->
+    <div
+      class="max-w-6xl w-full bg-white p-6 md:p-10 shadow-xl rounded-xl border-t-8 border-red-500"
+    >
+      <!-- Header -->
+      <header class="text-center mb-10">
+        <h1 class="text-5xl md:text-6xl text-gray-800 mb-2">
+          THE NERD FITNESS CHALLENGE
+        </h1>
+        <p
+          class="text-gray-500 uppercase tracking-widest font-semibold text-sm"
+        >
+          Interactive Worksheet
+        </p>
+      </header>
+
+      <!-- Main Layout Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Left Column: 1 & 2 -->
+        <div class="lg:col-span-4 flex flex-col gap-8">
+          <!-- Section 1: Pitfalls -->
+          <div class="paper-card p-6 rounded-lg h-full flex flex-col">
+            <div class="flex items-baseline mb-3">
+              <span class="header-font text-4xl text-red-500 mr-3">1.</span>
+              <h2 class="header-font text-3xl text-gray-800">Pitfalls</h2>
+            </div>
+            <p class="text-sm text-gray-600 mb-4 italic">
+              List the common challenges that knock you off track. (We'll use
+              these to plan ahead!)
+            </p>
+            <textarea
+              id="pitfalls"
+              class="w-full flex-grow border rounded-md text-gray-700 min-h-[150px]"
+              placeholder="Type your obstacles here..."
+            ></textarea>
+          </div>
+
+          <!-- Section 2: Core Practices -->
+          <div class="paper-card p-6 rounded-lg h-full flex flex-col">
+            <div class="flex items-baseline mb-3">
+              <span class="header-font text-4xl text-red-500 mr-3">2.</span>
+              <h2 class="header-font text-3xl text-gray-800">Core Practices</h2>
+            </div>
+            <p class="text-sm text-gray-600 mb-4 italic">
+              Select 1 or 2 actions to laser focus on for this challenge. (i.e.
+              workout, build a balanced plate, etc.)
+            </p>
+            <textarea
+              id="core-practices"
+              class="w-full flex-grow border rounded-md text-gray-700 min-h-[150px]"
+              placeholder="My focus actions..."
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Middle Column: Progress Tracker -->
+        <div class="lg:col-span-4 flex flex-col items-center justify-center">
+          <div
+            class="paper-card p-6 rounded-full aspect-square flex flex-col items-center justify-center w-full max-w-md relative"
+          >
+            <!-- Title inside top -->
+            <div class="text-center absolute top-10 md:top-16 inset-x-0">
+              <h2 class="header-font text-4xl text-gray-800 leading-none">
+                Progress<br /><span class="text-red-500">Tracker</span>
+              </h2>
+            </div>
+
+            <!-- SVG Container -->
+            <div id="tracker-container" class="w-full h-full p-4 mt-8">
+              <!-- SVG injected by JS -->
+            </div>
+
+            <!-- Instructions inside bottom -->
+            <div class="text-center absolute bottom-12 md:bottom-20 inset-x-10">
+              <p class="text-xs md:text-sm text-gray-600 font-semibold">
+                Fill in a section each time you perform a core practice.
+              </p>
+              <p class="text-xs text-gray-400 mt-2">
+                Zoom Out when the ring is complete.
+              </p>
+              <button
+                onclick="resetTracker()"
+                class="mt-4 text-xs text-red-400 hover:text-red-600 underline"
+              >
+                Reset Tracker
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: 3 & 4 -->
+        <div class="lg:col-span-4 flex flex-col gap-8">
+          <!-- Section 3: Dial Mode -->
+          <div class="paper-card p-6 rounded-lg h-full flex flex-col">
+            <div class="flex items-baseline mb-3">
+              <span class="header-font text-4xl text-red-500 mr-3">3.</span>
+              <h2 class="header-font text-3xl text-gray-800">Dial Mode</h2>
+            </div>
+            <p class="text-sm text-gray-600 mb-4 italic">
+              Create short back-up plan for your most common pitfalls.
+            </p>
+            <textarea
+              id="dial-mode"
+              class="w-full flex-grow border rounded-md text-gray-700 min-h-[150px]"
+              placeholder="My backup plan..."
+            ></textarea>
+          </div>
+
+          <!-- Section 4: Zoom Out -->
+          <div class="paper-card p-6 rounded-lg h-full flex flex-col">
+            <div class="flex items-baseline mb-3">
+              <span class="header-font text-4xl text-red-500 mr-3">4.</span>
+              <h2 class="header-font text-3xl text-gray-800">Zoom Out</h2>
+            </div>
+            <p class="text-sm text-gray-600 mb-4 italic">
+              Answer these questions to set up your next steps.<br />• What went
+              well?<br />• What was a challenge?<br />• What adjustments will I
+              make?
+            </p>
+            <textarea
+              id="zoom-out"
+              class="w-full flex-grow border rounded-md text-gray-700 min-h-[150px]"
+              placeholder="Reflections..."
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="mt-12 text-center border-t pt-6">
+        <p class="text-gray-400 header-font text-xl">NerdFitness.com</p>
+      </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div
+      id="toast"
+      class="fixed bottom-5 right-5 bg-gray-800 text-white px-4 py-2 rounded shadow-lg transform translate-y-20 opacity-0 transition-all duration-300"
+    >
+      Saved!
+    </div>
+    <!-- Link to custom JS -->
+    <script src="script.js"></script>
+  </body>
+</html>

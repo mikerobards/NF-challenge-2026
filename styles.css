@@ -1,0 +1,60 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+}
+
+h1,
+h2,
+.header-font {
+  font-family: 'Bebas Neue', cursive;
+  letter-spacing: 0.05em;
+}
+
+/* Tracker Styles */
+.tracker-segment {
+  fill: #e5e7eb; /* Default gray */
+  stroke: #fff;
+  stroke-width: 2px;
+  cursor: pointer;
+  transition: fill 0.2s ease, transform 0.1s;
+}
+
+.tracker-segment:hover {
+  fill: #d1d5db;
+}
+
+.tracker-segment.active {
+  fill: #ef4444; /* Nerd Fitness Red */
+}
+
+.tracker-segment:active {
+  transform: scale(0.98);
+  transform-origin: center;
+}
+
+/* Paper texture effect for cards */
+.paper-card {
+  background-color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+textarea {
+  resize: none;
+  background-image: linear-gradient(
+    transparent,
+    transparent 31px,
+    #f0f0f0 31px,
+    #f0f0f0 32px
+  );
+  background-size: 100% 32px;
+  line-height: 32px;
+  padding: 8px;
+}
+
+textarea:focus {
+  outline: none;
+  background-color: #fffbf0; /* Slight yellow tint on focus */
+}
